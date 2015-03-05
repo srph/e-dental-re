@@ -1,0 +1,20 @@
+{
+    "name": "edms/edms",
+    "authors": [
+        {
+            "name": "srph",
+            "email": "seraphipod@gmail.com"
+        }
+    ],
+    "autoload": {
+        "classmap": [
+            "models"
+        ],
+        "psr-4": {
+            "Core\\": "Core"
+        }
+    },
+    "require": {
+        "illuminate/database": "~4.2"
+    }
+}
