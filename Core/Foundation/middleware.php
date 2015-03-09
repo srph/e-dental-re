@@ -24,7 +24,7 @@ $middleware = new Core\Middleware\Factory;
 $middleware->add('guest', function() use ($auth) {
 	if ( $auth->check() )
 	{
-		header('Location: /index.php');
+		header('Location: /users/');
 		die();
 	}
 });

@@ -75,7 +75,7 @@ class Factory {
 	 */
 	public function login($user)
 	{
-		$this->session->set($this->key, $user->getAuthIdentifier());
+		$this->session->put($this->key, $user->getAuthIdentifier());
 		$this->user = $user;
 	}
 
