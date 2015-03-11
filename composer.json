@@ -15,6 +15,7 @@
         }
     },
     "require": {
-        "illuminate/database": "~4.2"
+        "illuminate/database": "~4.2",
+        "cangelis/pdf": "2.1.*"
     }
 }
