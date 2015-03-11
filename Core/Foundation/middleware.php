@@ -25,7 +25,7 @@ $middleware->add('guest', function() use ($auth)
 {
 	if ( $auth->check() )
 	{
-		header('Location: /users/');
+		header('Location: /me/');
 		die();
 	}
 });
@@ -60,7 +60,7 @@ $middleware->add('admin', function() use ($auth)
 {
 	if ( !$auth->is_admin )
 	{
-		header('Location: /index.php');
+		header('Location: /me/');
 		die();
 	}
 });

@@ -9,7 +9,7 @@ $middleware->run('guest');
 
 <script src="/inc/jquery.js"></script>
 <script src="/inc/bootstrap.js"></script>
-<link href="/inc/bootstrap.css " rel="stylesheet"></script>
+<link href="/inc/bootstrap.css" rel="stylesheet">
 
 <style rel="stylesheet">
 	/* BOOTSTRAP 3.x GLOBAL STYLES
