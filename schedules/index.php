@@ -1,7 +1,7 @@
 <?php
 
 require __DIR__ . '/../config.php';
-$middleware->run('auth');
+$middleware->run('admin');
 $schedules = Schedule::all();
 ?>
  

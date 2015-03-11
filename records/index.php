@@ -1,7 +1,7 @@
 <?php
 
 require '../config.php';
-$middleware->run('auth');
+$middleware->run('admin');
 $records = Record::all();
 ?>
 

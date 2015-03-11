@@ -1,6 +1,6 @@
 <?php
 require '../config.php';
-$middleware->run('auth');
+$middleware->run('admin');
 
 if ( !($_SERVER['REQUEST_METHOD'] == 'POST' || !$_POST) )
 {

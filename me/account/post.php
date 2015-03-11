@@ -1,15 +1,17 @@
 <?php
 
-require __DIR__ . '/../config.php';
-$middleware->run('admin');
+require __DIR__ . '/../../config.php';
+$middleware->run('auth');
 
-if ( $_SERVER['REQUEST_METHOD'] && $_POST )
+if ( $_SERVER['REQUEST_METHOD'] == 'POST' && $_POST)
 {
-    $input = $_POST;
+	$input = $_POST;
+	$user = $auth->user();;
 
-    $user = new User();
     $user->username = $input['username'];
-    $user->password = $hasher->make($input['password']);
+
+    if ( isset($input['password']) ) $user->password = $hasher->make($input['password']);
+
     $user->first_name = $input['first_name'];
     $user->last_name = $input['last_name'];
     $user->birthdate = date('Y-m-d', strtotime($input['birthdate']));
@@ -26,11 +28,11 @@ else
 <!DOCTYPE html>
 <html>
 <head>
-	<title>EDMS - Create Success!</title>
+	<title>EDMS - Update Success!</title>
 	<link rel="stylesheet" href="/inc/bootstrap.css">
 </head>
 <body>
-	<h1 class="text-center"> Create success, nice.. </h1>
+	<h1 class="text-center"> Update success, awesome.. </h1>
 
 	<h4 class="text-center"> Sending you back now in <span style="color: red;">3</span>. </h4>
 	<script>
@@ -39,7 +41,7 @@ else
 		var interval = setInterval(function() {
 			var text = parseInt($span.textContent, 10);
 
-			if ( text == 1 ) return window.location = '/users/index.php';
+			if ( text == 1 ) return window.location = '/me/account/';
 
 			$span.textContent =  text - 1;
 			interval();

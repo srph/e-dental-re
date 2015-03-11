@@ -58,7 +58,7 @@ $middleware->add('auth', function() use ($auth)
  */
 $middleware->add('admin', function() use ($auth)
 {
-	if ( !$auth->is_admin )
+	if ( $auth->check() && !$auth->user()->is_admin )
 	{
 		header('Location: /me/');
 		die();

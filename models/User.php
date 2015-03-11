@@ -30,4 +30,12 @@ class User extends Eloquent implements UserInterface {
 		return $this->hasMany('Record');
 	}
 
+	/**
+	 * One-To-Many with the `Record` model
+	 */
+	public function schedules()
+	{
+		return $this->hasMany('Schedule');
+	}
+
 }

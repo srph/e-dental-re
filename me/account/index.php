@@ -1,19 +1,9 @@
 <?php
 
-require __DIR__ . '/../config.php';
-$middleware->run('admin');
+require __DIR__ . '/../../config.php';
+$middleware->run('auth');
 
-if ( isset($_GET['id'])	 )
-{
-	$id = $_GET['id'];
-	$user = (new User)->find($id);
-}
-else
-{
-	echo '<script>alert("No id provided!")';
-	echo '<script>setTimeout(function() { window.location = "/users/index.php" }, 2500)</script>';
-	die();
-}
+$user = $auth->user();
 ?>
 
 <!DOCTYPE html>
@@ -31,9 +21,9 @@ else
 <body>
 	<div class="container">
 		<div class="row">
-			<?php require __DIR__ . '/../inc/sidebar.php'; ?>
+			<?php require __DIR__ . '/../../inc/sidebar.php'; ?>
 			<div class="col-md-9">
-				<form action="/users/update.php?id=<?php echo $user->id; ?>" method="POST">
+				<form action="/me/account/post.php" method="POST">
 					<div class="row form-group">
 						<div class="col-md-6">
 							<label>Username</label>
@@ -73,7 +63,7 @@ else
 					</div>
 
 					<button class="btn btn-success" type="submit">
-						Update user
+						Update Account
 					</button>
 				</form>
 			</div>

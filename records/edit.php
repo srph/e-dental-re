@@ -1,6 +1,6 @@
 <?php
 require __DIR__ . '/../config.php';
-$middleware->run('auth');
+$middleware->run('admin');
 
 if ( isset($_GET['id'])	 )
 {
