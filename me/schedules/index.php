@@ -1,12 +1,12 @@
 <?php
 require __DIR__ . '/../../config.php';
 $middleware->run('auth');
-$records = $auth->user()->records;
+$schedules = $auth->user()->schedules;
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Dashboard - Your Records</title>
+	<title>Dashboard - Your Schedules</title>
 	<script src="/inc/jquery.js"></script>
 	<script src="/inc/bootstrap.js"></script>
 	<link href="/inc/bootstrap.css " rel="stylesheet" />
@@ -22,28 +22,26 @@ $records = $auth->user()->records;
 		<div class="row">
 			<?php require __DIR__ . '/../../inc/sidebar.php'; ?>
 			<div class="col-md-9">
-				<h1> Your Records </h1>
+				<h1> Your Schedules </h1>
 				
-				<?php if ( !$records->count() ): ?>
+				<?php if ( !$schedules->count() ): ?>
 					<div class="alert alert-info">
-						You have not made any record yet.
+						You have not appointed any schedules yet.
 					</div>
 				<?php else: ?>
 					<table class="table">
 						<thead>
 							<tr>
 								<th>#</th>
-								<th>Service</th>
-								<th>Date</th>
+								<th>Date Appointed</th>
 							</tr>
 						</thead>
 
 						<tbody>
-							<?php foreach($records as $record): ?>
+							<?php foreach($schedules as $schedule): ?>
 								<tr>
-									<td><?php echo $record->id; ?></td>
-									<td><?php echo ucwords($record->service); ?></td>
-									<td><?php echo date('m d, Y', strtotime($record->created_at)); ?></td>
+									<td><?php echo $schedule->id; ?></td>
+									<td><?php echo date('m d, Y', strtotime($schedule->appointed_at)); ?></td>
 								</tr>
 							<?php endforeach; ?>
 						</tbody>
