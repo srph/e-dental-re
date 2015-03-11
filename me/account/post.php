@@ -10,7 +10,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' && $_POST)
 
     $user->username = $input['username'];
 
-    if ( isset($input['password']) ) $user->password = $hasher->make($input['password']);
+    if ( isset($input['password']) && strlen($input['password']) > 0 ) $user->password = $hasher->make($input['password']);
 
     $user->first_name = $input['first_name'];
     $user->last_name = $input['last_name'];
