@@ -15,8 +15,8 @@ $schedules = $auth->user()->schedules;
 	<link href="/inc/bootstrap.css " rel="stylesheet" />
 	<style>
 	  .container {
-	  	margin-top: 25px;
-	  	margin-bottom: 25px;
+	  	margin-top: 50px;
+	  	margin-bottom: 50px;
 	  }
 	</style>
 </head>
