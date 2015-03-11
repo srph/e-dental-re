@@ -21,7 +21,8 @@ $middleware = new Core\Middleware\Factory;
  *
  */
 
-$middleware->add('guest', function() use ($auth) {
+$middleware->add('guest', function() use ($auth)
+{
 	if ( $auth->check() )
 	{
 		header('Location: /users/');
@@ -38,10 +39,28 @@ $middleware->add('guest', function() use ($auth) {
  *
  */
 
-$middleware->add('auth', function() use ($auth) {
+$middleware->add('auth', function() use ($auth)
+{
 	if ( $auth->guest() )
 	{
 		header('Location: /login/index.php');
+		die();
+	}
+});
+
+/**
+ * -----------------------------
+ * Admin
+ * -----------------------------
+ *
+ * Accessibility strictly only for the administrators
+ *
+ */
+$middleware->add('admin', function() use ($auth)
+{
+	if ( !$auth->is_admin )
+	{
+		header('Location: /index.php');
 		die();
 	}
 });
