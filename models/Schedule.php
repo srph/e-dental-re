@@ -9,6 +9,19 @@ class Schedule extends Eloquent {
 	 */
 	protected $fillable = ['user_id', 'appointed_at'];
 
+	/**
+	 * All `attributes` to be converted to Date instance
+	 */
+	public function getDates()
+	{
+		return ['appointed_at'];
+	}
+
+	/**
+	 * Many-to-One, `User`
+	 *
+	 * @return User
+	 */
 	public function user()
 	{
 		return $this->belongsTo('User');

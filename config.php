@@ -27,4 +27,5 @@ require "{$dir}/session.php";
 require "{$dir}/hashing.php";
 require "{$dir}/auth.php";
 require "{$dir}/middleware.php";
+require "{$dir}/dompdf.php";
 

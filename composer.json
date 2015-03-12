@@ -16,6 +16,6 @@
     },
     "require": {
         "illuminate/database": "~4.2",
-        "dompdf/dompdf" : "0.6.*"
+        "dompdf/dompdf": "0.6.*"
     }
 }
