@@ -72,6 +72,15 @@ else
 						</div>
 					</div>
 
+					<hr>
+
+					<div class="form-group">
+						<label>
+							<input type="checkbox" name="is_admin" <?php echo $user->is_admin ? 'checked' : ''; ?>>
+							Is Admin
+						</label>
+					</div>
+
 					<button class="btn btn-success" type="submit">
 						Update user
 					</button>

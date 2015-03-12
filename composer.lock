@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7e4166905d2a7c5e53ecf33041154820",
+    "hash": "a33d4c638c01f266287d0968c5ff64ca",
     "packages": [
         {
             "name": "dompdf/dompdf",

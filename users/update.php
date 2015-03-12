@@ -18,6 +18,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' && $_POST)
 	    $user->last_name = $input['last_name'];
 	    $user->birthdate = date('Y-m-d', strtotime($input['birthdate']));
 	    $user->address = $input['address'];
+	    $user->is_admin = isset($input['is_admin']) && $input['is_admin'] == "on" ? true : false;
 	    $user->save();
 	}
 	else

@@ -60,6 +60,15 @@ $middleware->run('admin');
 						</div>
 					</div>
 
+					<hr>
+
+					<div class="form-group">
+						<label>
+							<input type="checkbox" name="is_admin">
+							Is Admin
+						</label>
+					</div>
+
 					<button class="btn btn-success" type="submit">
 						Create user
 					</button>

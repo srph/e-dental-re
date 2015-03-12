@@ -151,6 +151,10 @@ body {
     margin-right: auto;
 
   }
+
+  .navbar-right {
+    margin-right: 0;
+  }
 }
 </style>
 
@@ -187,6 +191,9 @@ body {
               </ul>
             </li>
           </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/login/">Login</a></li>
+          </ul>
         </div>
 
     </div>
@@ -210,7 +217,7 @@ body {
         <div class="carousel-caption">
           <h1>Welcome! to e-Dental Management System</h1>
           <p></p>
-          <p><a class="btn btn-lg btn-primary" href="/register/">SIGN UP FOR FREE</a>
+          <p><a class="btn btn-lg btn-primary" href="/register/">Sign Up for Free!</a>
         </p>
         </div>
       </div>

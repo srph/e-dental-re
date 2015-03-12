@@ -14,7 +14,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' && $_POST)
 
 	if ( $attempt )
 	{
-		header('Location: /success.php');
+		header('Location: /login/success.php');
 		die();
 	}
 }
