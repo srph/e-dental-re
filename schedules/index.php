@@ -49,11 +49,17 @@ $schedules = (new Schedule)->all()->each(function($schedule) {
 		var $modal = $('#schedule-modal');
 		var $modalBtn = $('#schedule-modal-create-btn');
 		var $modalInput = $('#schedule-modal select');
+		var now = Date.parse(moment().format('YYYY-MM-DD'));
 
 		$calendar.fullCalendar({
 			eventLimit: true,
 			events: events,
 			dayClick: function(date, evt, view) {
+
+				if ( Date.parse(date.format('YYYY-MM-DD')) - now < 0 ) {
+					return alert('Oops, but you cannot assign a schedule from past dates.');
+				}
+
 				if ( !confirm('Are you sure to appoint a schedule on ' + date.format('MMMM Do, YYYY') + '?') )
 					return;
 
@@ -61,6 +67,10 @@ $schedules = (new Schedule)->all()->each(function($schedule) {
 				$modalBtn.data('date', date.format('YYYY-MM-DD'));
 			},
 			eventClick: function(date, evt) {
+				if ( Date.parse(moment(date.start).format('YYYY-MM-DD')) - now < 0 ) {
+					return alert('Oops, but you cannot delete a schedule from past dates.');
+				}
+
 				if ( !confirm('Are you sure to delete this appointment?') )
 					return;
 

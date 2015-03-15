@@ -41,11 +41,17 @@ $schedules = $auth->user()->schedules->each(function($schedule) {
 	<script>
 		var events = JSON.parse('<?php echo $schedules->count() ? $schedules->toJson() : "[]"; ?>');
 		var count = <?php echo $schedules->count(); ?>;
+		var now = Date.parse(moment().format('YYYY-MM-DD'));
 
 		$('#calendar').fullCalendar({
 			eventLimit: true,
 			events: events,
 			dayClick: function(date, evt, view) {
+
+				if ( Date.parse(moment(date.start).format('YYYY-MM-DD')) - now < 0 ) {
+					return alert('Oops, but you cannot delete a schedule from past dates.');
+				}
+
 				if ( !confirm('Are you sure to appoint a schedule on ' + date.format('MMMM Do, YYYY') + '?') )
 					return;
 
@@ -67,6 +73,10 @@ $schedules = $auth->user()->schedules->each(function($schedule) {
 				})
 			},
 			eventClick: function(date, evt) {
+				if ( Date.parse(moment(date.start).format('YYYY-MM-DD')) - now < 0 ) {
+					return alert('Oops, but you cannot delete a schedule from past dates.');
+				}
+
 				if ( !confirm('Are you sure to delete this appointment?') )
 					return;
 
