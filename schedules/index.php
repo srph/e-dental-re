@@ -39,7 +39,6 @@ $schedules = (new Schedule)->all()->each(function($schedule) {
 	<script src="/inc/bootstrap.js"></script>
 	<script src="/inc/moment.min.js"></script>
 	<script src="/inc/fullcalendar.min.js"></script>
-	<script src="/inc/react.min.js"></script>
 	<script>
 		var events = JSON.parse('<?php echo $schedules->count() ? $schedules->toJson() : "[]"; ?>');
 		var count = <?php echo $schedules->count(); ?>;
