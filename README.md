@@ -1,6 +1,6 @@
 # e-dental-re
 
-E-Dental rewritten in its own \`framework\`. See [last project repository](https://github.com/srph/e-dental).
+E-Dental rewritten (See [last project repository](https://github.com/srph/e-dental)) in its own \`framework\`. 
 
 ## Installation
 
@@ -43,6 +43,8 @@ Otherwise, just setup your web-server, and then you're good to go!
 ## Limitation
 
 - Unlike the first version, we're putting up shitty pages instead of flash errors / messages.
+- In terms of code, this is project was not written nor will be written to be secure.
+- Bad practices all over the place.
 
 ## Acknowledgement
 
