@@ -6,4 +6,4 @@ $schedule = new Schedule(['user_id' => $_POST['id'], 'appointed_at' => date('Y-m
 $schedule->save();
 
 header('Content-Type: application/json');
-echo json_encode(['success' => true]);
+echo json_encode(['success' => true, 'data' => $schedule->toArray()]);

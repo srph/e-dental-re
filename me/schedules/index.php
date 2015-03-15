@@ -49,18 +49,21 @@ $schedules = $auth->user()->schedules->each(function($schedule) {
 				if ( !confirm('Are you sure to appoint a schedule on ' + date.format('MMMM Do, YYYY') + '?') )
 					return;
 
-				$('#calendar').fullCalendar('renderEvent', {
-					id: ++count,
-					title: date.format('YYYY-MM-DD'),
-					start: date.format('YYYY-MM-DD'),
-					end: date.format('YYYY-MM-DD')
-				});
+				var date = date.format('YYYY-MM-DD');
 
 				$.ajax({
 					url: '/me/schedules/store.php',
 					type: 'POST',
 					dataType: 'json',
-					data: { date: date.format('YYYY-MM-DD') },
+					data: { date: date },
+					success: function(response) {
+						$('#calendar').fullCalendar('renderEvent', {
+							id: response.data.id,
+							title: date,
+							start: date,
+							end: date
+						});
+					}
 				})
 			},
 			eventClick: function(date, evt) {
