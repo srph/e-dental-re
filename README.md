@@ -8,6 +8,7 @@ E-Dental rewritten (See [last project repository](https://github.com/srph/e-dent
 
 - PHP `>=v5.4`
 - MySQL `>=v5.x`
+- [Composer](https://getcomposer.org)
 
 **(1)** Clone the repository
 
@@ -24,7 +25,14 @@ $ create database dental; # create the database
 $ mysql -u <user> <pass> < db.sql # dump/import the sql query
 ```
 
-**(3)** Okay!
+**(3)** Install the dependencies
+
+```bash
+# make sure that you are currently in the project's root directory
+$ composer install
+```
+
+**(4)** Okay!
 
 If your machine does not have installed web server, you can use **PHP**'s built-in web-server, [`SAPI`](http://php.net/manual/en/features.commandline.webserver.php).
 
