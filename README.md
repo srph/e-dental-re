@@ -36,8 +36,9 @@ Otherwise, just setup your web-server, and then you're good to go!
 
 ## Changes
 
-- Unlike the first version, this project does not support file uploads.
-- Unlike the first version, this has the calendar to improve the `Schedules` module UX. 
+- This project does not support file uploads.
+- This has the `calendar` to improve the `Schedules` module UX. 
+- Schedules from past dates are no longer manageable.
 
 ## Limitation
 
