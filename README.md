@@ -1,5 +1,6 @@
-# e-dental-yolo
-E-Dental written in its own \`framework\`
+# e-dental-re
+
+E-Dental rewritten in its own \`framework\`. See [last project repository](https://github.com/srph/e-dental).
 
 ## Installation
 
@@ -32,6 +33,15 @@ $ php -S localhost:8000
 ```
 
 Otherwise, just setup your web-server, and then you're good to go!
+
+## Changes
+
+- Unlike the first version, this project does not support file uploads.
+- Unlike the first version, this has the calendar to improve the `Schedules` module UX. 
+
+## Limitation
+
+- Unlike the first version, we're putting up shitty pages instead of flash errors / messages.
 
 ## Acknowledgement
 
