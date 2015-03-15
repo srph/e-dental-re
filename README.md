@@ -44,7 +44,7 @@ Otherwise, just setup your web-server, and then you're good to go!
 
 ## Changes
 
-- This project does not support file uploads.
+- This project does not have user avatars / file uploads.
 - This has the `calendar` to improve the `Schedules` module UX. 
 - Schedules from past dates are no longer manageable.
 
