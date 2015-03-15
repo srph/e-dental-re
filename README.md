@@ -26,7 +26,7 @@ $ mysql -u <user> <pass> < db.sql # dump/import the sql query
 
 **(3)** Okay!
 
-If you have no installed web-server in your machine, you can use **PHP**'s built-in web-server, [`SAPI`](http://php.net/manual/en/features.commandline.webserver.php).
+If your machine does not have installed web server, you can use **PHP**'s built-in web-server, [`SAPI`](http://php.net/manual/en/features.commandline.webserver.php).
 
 ```
 $ php -S localhost:8000
