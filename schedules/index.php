@@ -1,6 +1,7 @@
 <?php
 require __DIR__ . '/../config.php';
 $middleware->run('admin');
+$users = (new User)->all();
 $schedules = (new Schedule)->all()->each(function($schedule) {
 	$user = $schedule->user;
 	$schedule->title = "{$user->first_name} {$user->last_name} ({$user->username})";
@@ -34,35 +35,30 @@ $schedules = (new Schedule)->all()->each(function($schedule) {
 		</div>
 	</div>
 
+	<?php require __DIR__ . '/modal.php'; ?>
+
 	<script src="/inc/jquery.js"></script>
 	<script src="/inc/jquery-ui.custom.min.js"></script>
 	<script src="/inc/bootstrap.js"></script>
 	<script src="/inc/moment.min.js"></script>
 	<script src="/inc/fullcalendar.min.js"></script>
-	<script src="/inc/react.min.js"></script>
 	<script>
 		var events = JSON.parse('<?php echo $schedules->count() ? $schedules->toJson() : "[]"; ?>');
 		var count = <?php echo $schedules->count(); ?>;
-		$('#calendar').fullCalendar({
+		var $calendar = $('#calendar');
+		var $modal = $('#schedule-modal');
+		var $modalBtn = $('#schedule-modal-create-btn');
+		var $modalInput = $('#schedule-modal select');
+
+		$calendar.fullCalendar({
 			eventLimit: true,
 			events: events,
 			dayClick: function(date, evt, view) {
 				if ( !confirm('Are you sure to appoint a schedule on ' + date.format('MMMM Do, YYYY') + '?') )
 					return;
 
-				$('#calendar').fullCalendar('renderEvent', {
-					id: ++count,
-					title: '<?php echo "{$auth->user()->first_name} {$auth->user()->last_name} ({$auth->user()->username})"; ?>"',
-					start: date.format('YYYY-MM-DD'),
-					end: date.format('YYYY-MM-DD')
-				});
-
-				$.ajax({
-					url: '/schedules/store.php',
-					type: 'POST',
-					dataType: 'json',
-					data: { date: date.format('YYYY-MM-DD') },
-				});
+				$modal.modal();
+				$modalBtn.data('date', date.format('YYYY-MM-DD'));
 			},
 			eventClick: function(date, evt) {
 				if ( !confirm('Are you sure to delete this appointment?') )
@@ -78,6 +74,31 @@ $schedules = (new Schedule)->all()->each(function($schedule) {
 					}
 				});
 			}
+		});
+
+		$modalBtn.on('click', function() {
+			var $this = $(this);
+			var date = $this.data('date');
+
+			$.ajax({
+				url: '/schedules/store.php',
+				type: 'POST',
+				dataType: 'json',
+				data: { date: date, user_id: $modalInput.val() },
+				success: function(response) {
+					var user = response.data.user;
+					var fullName = user.first_name + ' ' + user.last_name;
+
+					$calendar.fullCalendar('renderEvent', {
+						id: response.data.id,
+						title: fullName + ' (' + user.username + ')',
+						start: date,
+						end: date
+					});
+
+					$modal.modal('hide');
+				}
+			});
 		});
 	</script>
 </body>
