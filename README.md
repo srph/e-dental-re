@@ -11,7 +11,7 @@ E-Dental written in its own \`framework\`
 **(1)** Clone the repository
 
 ```bash
-$ git clone https://github.com/srph/e-dental-yolo
+$ git clone https://github.com/srph/e-dental-re.git
 ```
 
 **(2)** Setup the database.
