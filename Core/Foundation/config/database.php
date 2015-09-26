@@ -33,8 +33,8 @@ return array(
 	'connections'	=> array(
 		'eloquent'	=> array(
 		    'driver'    => 'mysql',
-		    'host'      => 'localhost',
-		    'database'  => 'dental',
+		    'host'      => '127.0.0.1',
+		    'database'  => 'edms',
 		    'username'  => 'root',
 		    'password'  => '',
 		    'charset'   => 'utf8',
